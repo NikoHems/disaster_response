@@ -71,3 +71,7 @@ Run the following commands in the project's root directory to set up your databa
 Install the required libraries using:
 ```sh
 pip install -r requirements.txt
+```
+
+## Acknowledgements
+This project was completed as part of the Udacity Data Scientist Nanodegree Program. The datasets are provided by Figure Eight (now Appen).
