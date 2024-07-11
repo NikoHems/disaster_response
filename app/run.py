@@ -16,6 +16,15 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    """
+    Tokenize and preprocess text data.
+
+    Parameters:
+    text (str): The text to be tokenized and processed.
+
+    Returns:
+    list: A list of tokens (words) after processing.
+    """
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -33,10 +42,15 @@ df = pd.read_sql_table('cleaned_data', engine)
 # load model
 model = joblib.load("../models/classifier.pkl")
 
-# index webpage displays cool visuals and receives user input text for model
 @app.route('/')
 @app.route('/index')
 def index():
+    """
+    Render the main page with visualizations.
+
+    Returns:
+    str: Rendered HTML page with embedded graphs.
+    """
     # extract data needed for visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
@@ -70,9 +84,14 @@ def index():
     # render web page with plotly graphs
     return render_template('master.html', ids=ids, graphJSON=graphJSON)
 
-# web page that handles user query and displays model results
 @app.route('/go')
 def go():
+    """
+    Render the page with model results for a user query.
+
+    Returns:
+    str: Rendered HTML page with model classification results.
+    """
     # save user input in query
     query = request.args.get('query', '') 
 
@@ -88,6 +107,9 @@ def go():
     )
 
 def main():
+    """
+    Run the Flask web application.
+    """
     app.run(host='0.0.0.0', port=3000, debug=True)
 
 if __name__ == '__main__':
