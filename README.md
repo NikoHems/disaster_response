@@ -72,6 +72,14 @@ Install the required libraries using:
 ```sh
 pip install -r requirements.txt
 ```
+## Screenshots
+
+Here are some screenshots of the web application:
+
+![Web App Screenshot 1](webapp_screenshots/webapp_1.png)
+![Web App Screenshot 2](webapp_screenshots/webapp_2.png)
+
+
 
 ## Acknowledgements
 This project was completed as part of the Udacity Data Scientist Nanodegree Program. The datasets are provided by Figure Eight (now Appen).
