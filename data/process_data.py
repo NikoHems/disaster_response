@@ -40,6 +40,10 @@ def clean_data(df):
     for column in categories:
         categories[column] = categories[column].str[-1]
         categories[column] = categories[column].astype(int)
+
+        # Fix 'related' column to be binary
+        if column == 'related':
+            categories[column] = categories[column].replace(2, 1)
     
     # Drop the original categories column from df
     df = df.drop('categories', axis=1)
